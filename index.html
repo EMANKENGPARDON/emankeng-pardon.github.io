@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pardon Emankeng | Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box
+}
+:root{
+    --dark:#2c2b30;
+    --mid:#4f4f51;
+    --accent:#f58f7c;
+    --bg:#f2c4ce;
+    --card:#d6d6d6;
+    --white:#fff8f6
+}
+html{
+     scroll-behavior:smooth
+} 
+body{
+     font-family:'Inter',sans-serif;
+     background:linear-gradient(180deg,#f7d5dc 0%,var(--bg) 60%,#efc0cb 100%);
+     color:var(--dark);
+     overflow-x:hidden
+}
+body.intro-active{
+  overflow:hidden
+}
+a{
+  text-decoration:none
+}
+.intro{
+  position:fixed;
+  inset:0;
+  z-index:99;
+  display:grid;
+  place-items:center;
+  padding:2rem;
+  background:radial-gradient(circle at 20% 20%,rgba(245,143,124,.35),transparent 24%),radial-gradient(circle at 80% 20%,rgba(242,196,206,.3),transparent 25%),linear-gradient(135deg,#1f1b21,#3f3a44 55%,#605b66);
+  transition:.9s ease
+}
+.intro.hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none
+}
+.intro::before,.intro::after{
+  content:'';
+  position:absolute;
+  border-radius:50%;
+  filter:blur(28px);
+  opacity:.38;
+  animation:floatGlow 9s ease-in-out infinite
+}
+.intro::before{
+  width:34vw;
+  height:34vw;
+  top:-8vw;
+  left:-8vw;
+  background:rgba(245,143,124,.38)
+}
+.intro::after{
+  width:30vw;
+  height:30vw;
+  right:-7vw;
+  bottom:-9vw;
+  background:rgba(255,255,255,.14);
+  animation-delay:-4s
+}
+.intro-card{
+  width:min(760px,100%);
+  padding:3rem 2rem;
+  border-radius:32px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  backdrop-filter:blur(16px);
+  box-shadow:0 24px 72px rgba(0,0,0,.28);
+  text-align:center;
+  color:var(--white);
+  position:relative;
+  overflow:hidden
+  }
+  .intro-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.18) 48%,transparent 72%);
+  transform:translateX(-120%);
+  animation:sweep 4.6s ease-in-out infinite
+  }
+.intro-tag,.intro-text,.intro-actions,.intro-title{position:relative;z-index:1}.intro-tag{display:inline-flex;gap:.55rem;align-items:center;padding:.55rem 1rem;border-radius:999px;background:rgba(255,255,255,.1);letter-spacing:.16rem;text-transform:uppercase;font-size:.75rem;font-weight:700;margin-bottom:1rem;animation:fadeUp .8s ease forwards}.intro-title{font:700 clamp(2.5rem,6vw,4.8rem)/1.04 'Poppins',sans-serif;letter-spacing:-.04em;margin-bottom:1rem}.intro-title span{display:block;opacity:0;transform:translateY(20px);animation:lineIn .8s ease forwards}.intro-title span:last-child{color:var(--accent);animation-delay:.3s}.intro-text{max-width:560px;margin:0 auto 1.6rem;line-height:1.7;color:rgba(255,248,246,.84);opacity:0;animation:fadeUp .8s ease .65s forwards}.intro-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s ease .95s forwards}.intro-enter,.intro-link{padding:.95rem 1.5rem;border-radius:999px;font-weight:700;display:inline-flex;align-items:center;gap:.55rem;transition:.25s ease}.intro-enter{border:none;background:linear-gradient(135deg,var(--accent),#ffc0b2);color:var(--dark);cursor:pointer;box-shadow:0 18px 34px rgba(245,143,124,.3)}.intro-link{border:1px solid rgba(255,255,255,.24);color:var(--white);background:rgba(255,255,255,.08)}.intro-enter:hover,.intro-link:hover{transform:translateY(-3px)}
+.shell{opacity:0;transform:translateY(24px);transition:.8s ease}.shell.visible{opacity:1;transform:none}.container{max-width:1180px;margin:0 auto;padding:0 2rem}
+nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.5rem 0;border-bottom:1px solid rgba(79,79,81,.18)}.logo{font:700 1.8rem 'Poppins',sans-serif}.logo span{color:var(--mid)}.nav-links{display:flex;gap:1.6rem;list-style:none}.nav-links a{color:var(--dark);font-weight:600}.nav-links a:hover{color:var(--mid)}
+.hero{display:grid;grid-template-columns:1.2fr .9fr;gap:2.5rem;align-items:center;padding:3rem 0 4rem}.badge{display:inline-flex;gap:.5rem;align-items:center;padding:.4rem 1rem;border-radius:999px;background:rgba(214,214,214,.6);color:var(--mid);font-size:.85rem;font-weight:700;margin-bottom:1rem}.hero h1{font:700 clamp(2.4rem,5vw,3.8rem)/1.1 'Poppins',sans-serif;margin-bottom:1rem}.hero h1 span{color:var(--mid);position:relative}.hero h1 span::after{content:'';position:absolute;left:0;bottom:6px;width:100%;height:4px;background:var(--accent);border-radius:999px}.hero p{font-size:1.05rem;line-height:1.7;color:var(--mid);margin-bottom:1.5rem}.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.6rem;border-radius:999px;font-weight:700;transition:.25s ease}.btn-main{background:var(--accent);color:var(--dark);box-shadow:0 14px 28px rgba(245,143,124,.26)}.btn-main:hover{background:var(--dark);color:#fff;transform:translateY(-2px)}.btn-alt{border:2px solid var(--mid);color:var(--mid)}.btn-alt:hover{background:var(--mid);color:#fff;transform:translateY(-2px)}
+.photo-card{background:linear-gradient(135deg,rgba(242,196,206,.92),rgba(214,214,214,.84));border:1px solid rgba(79,79,81,.14);border-radius:30px;padding:1.4rem;text-align:center;box-shadow:0 20px 38px -18px rgba(44,43,48,.28);animation:floatCard 5.5s ease-in-out infinite}.photo-frame{width:280px;height:280px;margin:0 auto;border-radius:50%;overflow:hidden;border:4px solid var(--accent);box-shadow:0 12px 24px rgba(44,43,48,.16)}.photo-frame img{width:100%;height:100%;object-fit:cover}.photo-card p{margin-top:1rem;color:var(--mid);font-weight:600}
+.section-title{font:700 2rem 'Poppins',sans-serif;margin:2rem 0 1.6rem;position:relative;display:inline-block}.section-title::after{content:'';position:absolute;left:0;bottom:-10px;width:72px;height:3px;background:var(--accent);border-radius:999px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}.card{background:rgba(214,214,214,.72);padding:1.6rem;border-radius:24px;border:1px solid rgba(79,79,81,.12);box-shadow:0 10px 24px rgba(44,43,48,.08);transition:.3s ease}.card:hover{transform:translateY(-6px);box-shadow:0 18px 30px rgba(44,43,48,.14);border-color:var(--accent)}.card h3{font-size:1.35rem;margin-bottom:.45rem}.meta{display:flex;justify-content:space-between;gap:.8rem;flex-wrap:wrap;color:var(--mid);font-size:.9rem;font-weight:600;margin-bottom:1rem}.list{list-style:none}.list li{display:flex;gap:.75rem;align-items:flex-start;line-height:1.5;margin-bottom:.7rem}.list i{color:var(--mid);margin-top:.2rem}.chips{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1rem}.chip{padding:.45rem 1rem;border-radius:999px;background:rgba(242,196,206,.55);font-size:.85rem;font-weight:600}
+.message-box,.contact{margin-top:2.5rem;background:rgba(214,214,214,.56);border-radius:30px;border:1px solid rgba(79,79,81,.12);box-shadow:0 14px 28px rgba(44,43,48,.08)}.message-box{padding:2rem}.message-box h3,.contact h2{font:700 1.5rem 'Poppins',sans-serif;margin-bottom:.45rem}.message-box p,.contact p{color:var(--mid);line-height:1.6}.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.2rem;margin-top:1.2rem}.full{grid-column:1/-1}label{display:block;font-size:.92rem;font-weight:700;margin-bottom:.45rem}input,textarea{width:100%;padding:.95rem 1rem;border-radius:18px;border:1px solid rgba(79,79,81,.18);background:rgba(255,255,255,.72);font:inherit}textarea{min-height:150px;resize:vertical}input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(245,143,124,.16)}.form-actions{grid-column:1/-1;display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap}.status{grid-column:1/-1;min-height:1.2rem;font-size:.92rem;color:var(--dark)}
+.contact{padding:2.4rem 2rem;text-align:center}.contact-links,.contact-info{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;margin-top:1.5rem}.contact-link{display:inline-flex;align-items:center;gap:.7rem;padding:.9rem 1.5rem;border-radius:999px;background:var(--bg);color:var(--dark);font-weight:700;border:1px solid rgba(79,79,81,.12);transition:.25s ease}.contact-link:hover{transform:translateY(-3px);background:rgba(242,196,206,.7)}footer{text-align:center;padding:2rem 0 3rem;color:var(--mid);font-size:.9rem}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .75s ease,transform .75s ease}.reveal.show{opacity:1;transform:none}.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+@keyframes floatGlow{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(20px,26px,0) scale(1.08)}} @keyframes sweep{0%{transform:translateX(-120%)}55%,100%{transform:translateX(120%)}} @keyframes lineIn{to{opacity:1;transform:none}} @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}} @keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@media (max-width:820px){.hero{grid-template-columns:1fr;text-align:center}.hero-actions,.contact-links,.contact-info{justify-content:center}.section-title{display:block;text-align:center}.section-title::after{left:50%;transform:translateX(-50%)}.photo-frame{width:220px;height:220px}}
+@media (max-width:680px){nav{flex-direction:column}.nav-links{flex-wrap:wrap;justify-content:center}.intro-card{padding:2.3rem 1.3rem}.intro-actions{flex-direction:column}.intro-enter,.intro-link{width:100%;justify-content:center}.form{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="intro-active">
+<div class="intro" id="intro">
+  <div class="intro-card">
+    <div class="intro-tag"><i class="fas fa-play-circle"></i>Cyber security specialist</div>
+    <h1 class="intro-title"><span>Emankeng Pardon&apos;s</span><span>Portfolio</span></h1>
+    <p class="intro-text">Hello!! i am Pardon Emankeng, a final-year ICT University student majoring in Cyber Security please Click below to enter the portfolio.</p>
+    <div class="intro-actions">
+      <button class="intro-enter" id="enterSite" type="button">Click Here To View</button>
+      <a class="intro-link" href="#home" id="skipIntro"></a>
+    </div>
+  </div>
+</div>
+<div class="shell" id="shell">
+  <div class="container">
+    <nav class="reveal show">
+      <div class="logo">Pardon<span> Emankeng</span></div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li><li><a href="#experience">Experience</a></li><li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <section id="home" class="hero">
+      <div>
+        <div class="badge reveal d1"><i class="fas fa-shield-alt"></i> Cybersecurity Specialist</div>
+        <h1 class="reveal d1">Securing Digital Futures <br><span>with Precision and Passion</span></h1>
+        <p class="reveal d2">I am Pardon Emankeng, a final-year ICT University student majoring in Cyber Security, with strengths in application security, network defense, vulnerability management, and data loss prevention.</p>
+        <div class="hero-actions reveal d3"><a href="#contact" class="btn btn-main"><i class="fas fa-paper-plane"></i> Contact Me</a><a href="https://wa.me/237650111187?text=Hello%20Pardon%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20love%20to%20connect!" target="_blank" class="btn btn-alt"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
+      </div>
+      <div class="photo-card reveal d2"><div class="photo-frame"><img src="me.jpeg" alt="Pardon Emankeng"></div><p><i class="fas fa-certificate"></i> Cyber Security Analyst | Security Architect in training</p></div>
+    </section>
+    <section id="experience">
+      <h2 class="section-title reveal">Professional Experience</h2>
+      <div class="grid">
+        <article class="card reveal"><h3>Website Security Head</h3><div class="meta"><span>DNT Academy</span><span>09/2023 - Present</span></div><ul class="list"><li><i class="fas fa-shield-virus"></i><span>Scanning websites for malware and managing security vulnerabilities.</span></li><li><i class="fas fa-user-secret"></i><span>Preventing attacks through proactive monitoring.</span></li><li><i class="fas fa-chart-line"></i><span>Analyzing student data collected through the website.</span></li><li><i class="fas fa-palette"></i><span>Designed promotional flyers for courses.</span></li></ul></article>
+        <article class="card reveal d1"><h3>IT Manager</h3><div class="meta"><span>GBS Leader&apos;s Dream, Yaounde</span><span>09/2024 - 12/2025</span></div><ul class="list"><li><i class="fas fa-network-wired"></i><span>Oversaw IT department operations and training programs.</span></li><li><i class="fas fa-chart-simple"></i><span>Managed network and system performance optimization.</span></li><li><i class="fas fa-file-excel"></i><span>Created spreadsheets for student enrollment tracking.</span></li><li><i class="fas fa-coins"></i><span>Assisted with financial management tasks.</span></li></ul></article>
+      </div>
+    </section>
+    <section id="education">
+      <h2 class="section-title reveal">Education and Certifications</h2>
+      <div class="grid">
+        <article class="card reveal"><h3>BSc in Cyber Security</h3><div class="meta"><span>ICT University, Yaounde</span><span>09/2022 - 06/2026</span></div><ul class="list"><li><i class="fas fa-laptop-code"></i><span>Advanced Web Development</span></li><li><i class="fas fa-mobile-alt"></i><span>Android Application Development</span></li><li><i class="fas fa-cubes"></i><span>Software Architecture</span></li><li><i class="fas fa-database"></i><span>Advanced Database Systems</span></li><li><i class="fas fa-globe"></i><span>Network Management</span></li></ul><div class="chips"><span class="chip"><i class="fas fa-language"></i> English: IELTS 6.5</span><span class="chip"><i class="fas fa-comment-dots"></i> French: Fluent</span></div></article>
+        <article class="card reveal d1"><h3>Professional Certifications</h3><ul class="list"><li><i class="fas fa-database"></i><span><strong>Diploma in Database Management</strong><br>Alison online learning platform</span></li><li><i class="fas fa-code"></i><span><strong>Diploma in Software Engineering</strong><br>Coursera online learning platform</span></li><li><i class="fas fa-shield-alt"></i><span><strong>Core Expertise:</strong> Application Security, Data Loss Prevention, Network Security, Security Architecture, Vulnerability Management.</span></li></ul></article>
+      </div>
+    </section>
+    <div class="message-box reveal">
+      <h3>Send a Direct Message</h3>
+      <p>Fill out the form below and it will open WhatsApp with your message ready to send, with email as a fallback.</p>
+      <form class="form" id="direct-message-form">
+        <div><label for="sender-name">Your Name</label><input id="sender-name" name="senderName" type="text" placeholder="Enter your name" required></div>
+        <div><label for="sender-email">Your Email</label><input id="sender-email" name="senderEmail" type="email" placeholder="Enter your email" required></div>
+        <div class="full"><label for="message-subject">Subject</label><input id="message-subject" name="messageSubject" type="text" placeholder="What would you like to discuss?" required></div>
+        <div class="full"><label for="message-body">Message</label><textarea id="message-body" name="messageBody" placeholder="Write your message here..." required></textarea></div>
+        <div class="form-actions"><span><i class="fab fa-whatsapp"></i> WhatsApp opens on submit. If blocked, email opens instead.</span><button type="submit" class="btn btn-main"><i class="fas fa-paper-plane"></i> Send Direct Message</button></div>
+        <div class="status" id="direct-message-status" aria-live="polite"></div>
+      </form>
+    </div>
+    <section id="contact" class="contact reveal">
+      <h2>Let&apos;s Connect</h2>
+      <p>Have a project, security consulting need, or just want to say hi? Reach out through any platform below.</p>
+      <div class="contact-links"><a class="contact-link" target="_blank" href="https://wa.me/237650111187?text=Hello%20Pardon%2C%20I%20visited%20your%20portfolio%20and%20I%27m%20interested%20in%20connecting!"><i class="fab fa-whatsapp"></i> WhatsApp</a><a class="contact-link" href="mailto:emankengpardon@gmail.com?subject=Inquiry%20from%20Portfolio&amp;body=Hi%20Pardon%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20get%20in%20touch."><i class="fas fa-envelope"></i> Email</a><a class="contact-link" target="_blank" href="https://www.tiktok.com/@pardon_emankeng"><i class="fab fa-tiktok"></i> TikTok</a></div>
+      <div class="contact-info"><span><i class="fas fa-phone-alt"></i> +237 6 5011 1187</span><span><i class="fas fa-envelope"></i> emankengpardon@gmail.com</span><span><i class="fas fa-map-marker-alt"></i> Yaounde, Cameroon</span><span><i class="fas fa-globe"></i> www.dntacademy.org</span></div>
+    </section>
+    <footer class="reveal"><p>&copy; 2025 Pardon Emankeng - Cybersecurity Professional | Application Security | Network Defense | Vulnerability Management</p><p style="margin-top:.6rem;font-size:.8rem"><i class="fas fa-shield-alt"></i> Building secure digital ecosystems with expertise and integrity</p></footer>
+  </div>
+</div>
+<script>
+const intro=document.getElementById('intro');
+const shell=document.getElementById('shell');
+const enterSite=document.getElementById('enterSite');
+const skipIntro=document.getElementById('skipIntro');
+const observer=new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting){entry.target.classList.add('show');observer.unobserve(entry.target);}})},{threshold:.18});
+function beginSite(){intro.classList.add('hidden');document.body.classList.remove('intro-active');shell.classList.add('visible');document.querySelectorAll('.reveal').forEach((el)=>{if(!el.classList.contains('show'))observer.observe(el);});}
+enterSite.addEventListener('click',beginSite);
+skipIntro.addEventListener('click',(e)=>{e.preventDefault();beginSite();document.getElementById('home').scrollIntoView({behavior:'smooth',block:'start'});});
+document.querySelectorAll('.nav-links a,.btn-main[href="#contact"],.btn-alt[href="#contact"]').forEach((anchor)=>{anchor.addEventListener('click',function(e){const href=this.getAttribute('href');if(href&&href.startsWith('#')){e.preventDefault();const target=document.getElementById(href.slice(1));if(target)target.scrollIntoView({behavior:'smooth',block:'start'});}});});
+const form=document.getElementById('direct-message-form');
+if(form){form.addEventListener('submit',(e)=>{e.preventDefault();const name=document.getElementById('sender-name').value.trim();const email=document.getElementById('sender-email').value.trim();const subject=document.getElementById('message-subject').value.trim();const message=document.getElementById('message-body').value.trim();const status=document.getElementById('direct-message-status');const whatsappText=encodeURIComponent('Hello Pardon, I am reaching out from your portfolio.\n\nName: '+name+'\nEmail: '+email+'\nSubject: '+subject+'\n\nMessage:\n'+message);const whatsappUrl='https://wa.me/237650111187?text='+whatsappText;const emailSubject=encodeURIComponent(subject+' | Portfolio Message from '+name);const emailBody=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+message);const emailUrl='mailto:emankengpardon@gmail.com?subject='+emailSubject+'&body='+emailBody;if(status)status.textContent='Opening WhatsApp with your message...';const win=window.open(whatsappUrl,'_blank');if(!win){if(status)status.textContent='WhatsApp was blocked. Opening your email app instead.';window.location.href=emailUrl;return;}if(status)status.textContent='Your message is ready in WhatsApp. Press send there to deliver it.';});}
+console.log('Portfolio ready with intro animation and scroll reveals.');
+</script>
+</body>
+</html>
